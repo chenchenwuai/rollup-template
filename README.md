@@ -1,2 +1,6 @@
 # rollup-template
-rollup package template
+🚀 rollup-template 🌈.
+
+## usage
+```js
+```

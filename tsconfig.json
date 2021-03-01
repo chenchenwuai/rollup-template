@@ -1,23 +1,41 @@
 {
     "compilerOptions": {
-        "strict": true, // 启用所有严格类型检查选项。相当于启用 --noImplicitAny, --noImplicitThis, --alwaysStrict， --strictNullChecks和 --strictFunctionTypes和--strictPropertyInitialization。
-        "module": "commonjs", // 指定生成哪个模块系统代码 "None"， "CommonJS"， "AMD"， "System"， "UMD"， "ES6"或 "ES2015"。
-        "moduleResolution": "node", // 决定如何处理模块 module === "AMD" or "System" or "ES6" ? "Classic" : "Node"
+        // 不报告执行不到的代码错误。
+        "allowUnreachableCode": true,
+        "strictNullChecks": true,
+        // 严格模式, 强烈建议开启
+        "strict": true,
+        // 支持别名导入:
+        // import * as React from "react"
         "esModuleInterop": true,
-        "target": "es5", // 指定ECMAScript目标版本
-        // "module": "umd",
-        "noImplicitAny": true, // 在表达式和声明上有隐含的 any类型时报错。
-        "removeComments": true, // 删除所有注释，除了以 /!*开头的版权信息。
-        "preserveConstEnums": false, // 保留 const和 enum声明。
-        "sourceMap": true, // 生成相应的 .map文件。
+        // 目标js的版本
+        "target": "es5",
+        // 目标代码的模块结构版本
+        "module": "ESNext",
+        // 在表达式和声明上有隐含的 any类型时报错。
+        "noImplicitAny": false,
+        // "__extends"等函数
+        // 将以"import {__extends} from 'tslib'的形式导入
+        "importHelpers": true,
+        // 删除注释
+        "removeComments": true,
+        // 保留 const和 enum声明
+        "preserveConstEnums": false,
+        // 生成sourceMap
+        "sourceMap": true,
+        // 目标文件所在路径
+        "outDir": "./lib",
+        // 编译过程中需要引入的库文件的列表
+        "lib": ["dom","es6"],
+        // 额外支持解构/forof等功能
         "downlevelIteration": true,
-
-        // 告诉编辑器你需要的语法提示的版本
-        "lib": [
-            "es6"
-        ],
+        // 是否生成声明文件
+        "declaration": true,
+        // 此处设置为node,才能解析import xx from 'xx'
+        "moduleResolution": "node",
+				// 从此处开始编译
+        "rootDir": "./src"
     },
-    "include": [
-        "src/main.ts"
-    ]
+    // 入口文件
+    "include": ["src"]
 }
